@@ -1,0 +1,72 @@
+@import "@fontsource/rubik";
+
+@import "@fontsource/poppins/100.css";
+@import "@fontsource/poppins/300.css";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/700.css";
+@import "@fontsource/poppins/900.css";
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*, body, html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+.NoBox{
+
+    overflow-y: scroll; /* Hide vertical scrollbar */
+    overflow-x: scroll; /* Hide horizontal scrollbar */
+}
+.animate {
+  transition: transform .35s ease-in-out;
+}
+.TextArea::-webkit-scrollbar {
+  display: none;
+}
+@layer components {
+  .main{
+    @apply flex flex-wrap w-full min-h-full m-0 bg-base-300;
+  }
+  body {
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  }
+  svg{
+    @apply fill-neutral-focus
+  }
+  .TaskGroup{
+    @apply w-64 h-24 bg-base-100 ml-1 hover:bg-base-200 shadow-xl rounded-md mt-5 duration-300 transition-all hover:outline-1 hover:outline-info outline-none
+  }
+  .changer{
+    @apply w-24 text-center rounded-md align-middle transition-all duration-300 bg-base-100 cursor-pointer
+  }
+
+  .ProfileText{
+    font-size: 10px;
+  }
+
+  .taskArea::-webkit-scrollbar {
+    display: none;
+  }
+
+  .logo{
+    -webkit-app-region: drag;
+  }
+  .heading{
+    -webkit-app-region: drag;
+  }
+}
+.Header, .Widgets{
+    width:93%
+}
+body{
+  user-select: none
+}

@@ -1,0 +1,168 @@
+{
+  "name": "your-app-name",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@electron/remote": "^2.0.8",
+    "@extra/humanize": "^4.2.2-next.616",
+    "@fontsource/poppins": "^4.5.10",
+    "@fontsource/roboto": "^4.5.8",
+    "@fontsource/rubik": "^4.5.13",
+    "@fontsource/ubuntu": "^4.5.11",
+    "@logtail/node": "^0.1.14",
+    "@shopify/draggable": "^1.0.0-beta.8",
+    "@tailwindcss/typography": "^0.5.9",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/node": "^18.11.18",
+    "atob": "^2.1.2",
+    "axios": "^1.2.2",
+    "btoa": "^1.2.1",
+    "chrome-finder": "^1.0.7",
+    "chrome-launcher": "^0.15.1",
+    "chrome-remote-interface": "^0.31.3",
+    "concurrently": "^7.4.0",
+    "credit-card-reveal": "^0.1.5",
+    "cross-env": "^7.0.3",
+    "daisyui": "^2.51.5",
+    "delay": "^5.0.0",
+    "discord-rpc": "^4.0.1",
+    "discord-webhook-node": "^1.1.8",
+    "electron-dl": "^3.5.0",
+    "electron-fetch": "^1.9.1",
+    "electron-is-dev": "^2.0.0",
+    "electron-updater": "^5.3.0",
+    "firebase": "^9.12.1",
+    "folder-delete": "^1.0.4",
+    "fs": "^0.0.1-security",
+    "ghost-cursor": "^1.1.16",
+    "http": "^0.0.1-security",
+    "https": "^1.0.0",
+    "https-proxy-agent": "^5.0.1",
+    "ionicons": "^6.0.3",
+    "lighthouse": "^9.6.7",
+    "node-fetch": "2",
+    "node-fetch2": "^1.6.3",
+    "node-html-parser": "^6.1.1",
+    "node-machine-id": "^1.1.12",
+    "node-random-name": "^1.0.1",
+    "nopecha": "^1.0.9",
+    "os": "^0.1.2",
+    "puppeteer": "^19.9.1",
+    "puppeteer-core": "^19.5.2",
+    "puppeteer-extra": "^3.1.16-next.149",
+    "puppeteer-extra-plugin-stealth": "^2.11.1",
+    "querystring": "^0.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.36.1",
+    "react-hot-toast": "^2.4.0",
+    "react-live-clock": "^6.0.6",
+    "react-native": "^0.70.4",
+    "react-native-web": "^0.18.9",
+    "react-router-dom": "^6.4.1",
+    "react-scripts": "5.0.1",
+    "react-tooltip": "^5.2.0",
+    "request": "^2.88.2",
+    "sillyname": "^0.1.0",
+    "theme-change": "^2.5.0",
+    "tooltippy": "^1.1.0",
+    "typescript": "^4.9.4",
+    "uaup-js": "^0.0.22",
+    "undici": "^5.15.0",
+    "util": "^0.12.5",
+    "wait-on": "^6.0.1",
+    "web-vitals": "^3.0.2",
+    "whopapi": "^3.0.0"
+  },
+  "main": "public/main.js",
+  "homepage": "./",
+  "scripts": {
+    "start": "cross-env PORT=3055 react-scripts start",
+    "@electron/remote": "^2.0.8",
+    "compile": "electron-webpack",
+    "build": "yarn compile && react-scripts build",
+    "test": "react-scripts test",
+    "react-build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "electron:serve": "concurrently -k \"cross-env BROWSER=none yarn start\" \"yarn electron:start\"",
+    "electron:build": "react-scripts build && electron-builder -c.extraMetadata.main=build/main.js",
+    "electron:start": "wait-on tcp:3055 && electron ."
+  },
+  "author": {
+    "name": "Your App"
+  },
+  "build": {
+    "extends": null,
+    "appId": "your-app-name",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "logo.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "installerIcon": "logo.ico",
+      "uninstallerIcon": "logo.ico",
+      "allowToChangeInstallationDirectory": false,
+      "createStartMenuShortcut": true
+    },
+    "files": [
+      "build/**/*",
+      "dist/**/*",
+      "node_modules/**/*",
+      "public/**/*",
+      "src/**/*",
+      "ProxyAuth/**/*",
+      "package.json",
+      "postcss.config.js",
+      "tailwind.config.js"
+    ],
+    "extraFiles": [
+      "credentials"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "electronWebpack": {
+    "commonSourceDirectory": "./public",
+    "title": true,
+    "main": {
+      "sourceDirectory": "src"
+    },
+    "renderer": {
+      "sourceDirectory": "public"
+    }
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.12",
+    "electron": "^21.0.1",
+    "electron-builder": "^23.6.0",
+    "electron-webpack": "^2.8.2",
+    "postcss": "^8.4.17",
+    "tailwindcss": "^3.1.8",
+    "ts-node": "^10.9.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

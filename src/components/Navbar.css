@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer components {
+  .nav-menu{
+    @apply
+    h-screen select-none bg-base-100
+    ; 
+  }
+  .nav-menu{
+    width:120px
+  }
+  .sidebar-icon{
+    @apply  w-24 text-lg
+    relative flex items-center justify-center
+    h-10 mt-10 mx-auto 
+    hover:bg-base-300 rounded-sm hover:rounded-md transition-all
+    duration-300 cursor-pointer z-10  select-none; 
+  }
+  .sidebar-tooltip{
+    @apply absolute w-auto p-2 min-w-max left-28 rounded-md shadow-md
+   text-xs bg-base-100 font-medium transition-all duration-300
+    scale-0 origin-left inline-block z-50 select-none;
+  }
+  
+
+}
